@@ -22,10 +22,10 @@ map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
 -- Resize window using <alt> hjkl keys
-map("n", "<M-k>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
-map("n", "<M-j>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
-map("n", "<M-h>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
-map("n", "<M-l>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+map("n", "<M-k>", ":call TmuxResize('k', 4)<CR>", { desc = "Increase window height downward" })
+map("n", "<M-j>", ":call TmuxResize('j', 4)<CR>", { desc = "Increase window height upward" })
+map("n", "<M-h>", ":call TmuxResize('h', 4)<CR>", { desc = "Increase window width leftward" })
+map("n", "<M-l>", ":call TmuxResize('l', 4)<CR>", { desc = "Increase window width rightward" })
 
 -- Quick Write and quit
 map({ "n" }, "<leader>q", ":q<CR>", { desc = "", silent = true })
