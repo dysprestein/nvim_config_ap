@@ -22,6 +22,19 @@ local function unmap(mode, lhs)
         vim.keymap.del(mode, lhs, {})
     end
 end
+--
+-- Disable any default LazyVim keymaps
+unmap("t", "<esc><esc>")
+unmap("n", "<leader>qq")
+unmap("n", "<leader>qs")
+unmap("n", "<leader>ql")
+unmap("n", "<leader>qd")
+unmap("n", "<leader>ww")
+unmap("n", "<leader>wd")
+unmap("n", "<leader>w-")
+unmap("n", "<leader>w|")
+unmap("n", "<leader>-")
+unmap("n", "<leader>|")
 
 -- Resize window using <alt> hjkl keys
 map("n", "<M-k>", ":call TmuxResize('k', 4)<CR>", { desc = "Increase window height downward" })
@@ -177,7 +190,3 @@ map({ "n" }, "<leader>F", ":FzfLua grep<CR>", { desc = "Grep With Seed", silent 
 -- Nvimtree
 map({ "n" }, "tt", ":NvimTreeToggle<CR>", { desc = "Nvimtree Toggle", silent = true })
 map({ "n" }, "tf", ":NvimTreeFindFile<CR>", { desc = "Nvimtree Focus File", silent = true })
-
--- Disable/Override any default LazyVim keymaps
-map("t", "<esc><esc>", "<C-c>", { desc = "Close terminal mode." })
-map("t", "<esc>", "<C-c>", { desc = "Close terminal mode." })
