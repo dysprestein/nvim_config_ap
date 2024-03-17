@@ -15,6 +15,13 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+local function unmap(mode, lhs)
+    -- Check if the mapping exists
+    if vim.fn.maparg(lhs, mode) ~= '' then
+        -- If the mapping exists, unmap it
+        vim.keymap.del(mode, lhs, {})
+    end
+end
 
 -- Resize window using <alt> hjkl keys
 map("n", "<M-k>", ":call TmuxResize('k', 4)<CR>", { desc = "Increase window height downward" })
