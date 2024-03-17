@@ -1,1 +1,1 @@
-My custom nvim config, forked from LazyVim.
+Custom nvim config, forked from LazyVim bootstrap.
