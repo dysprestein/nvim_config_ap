@@ -180,3 +180,7 @@ map({ "n" }, "<leader>F", ":FzfLua grep<CR>", { desc = "Grep With Seed", silent 
 -- Nvimtree
 map({ "n" }, "tt", ":NvimTreeToggle<CR>", { desc = "Nvimtree Toggle", silent = true })
 map({ "n" }, "tf", ":NvimTreeFindFile<CR>", { desc = "Nvimtree Focus File", silent = true })
+
+-- Disable/Override any default LazyVim keymaps
+map("t", "<esc><esc>", "<C-c>", { desc = "Close terminal mode." })
+map("t", "<esc>", "<C-c>", { desc = "Close terminal mode." })
