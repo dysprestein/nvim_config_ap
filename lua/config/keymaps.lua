@@ -15,11 +15,6 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
--- Move to window using the <ctrl> hjkl keys
-map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
-map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
-map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
-map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
 -- Resize window using <alt> hjkl keys
 map("n", "<M-k>", ":call TmuxResize('k', 4)<CR>", { desc = "Increase window height downward" })
@@ -28,46 +23,45 @@ map("n", "<M-h>", ":call TmuxResize('h', 4)<CR>", { desc = "Increase window widt
 map("n", "<M-l>", ":call TmuxResize('l', 4)<CR>", { desc = "Increase window width rightward" })
 
 -- Quick Write and quit
-map({ "n" }, "<leader>q", ":q<CR>", { desc = "", silent = true })
-map({ "n" }, "<leader>Q", ":qa<CR>", { desc = "", silent = true })
-map({ "n" }, "<leader>w", ":w<CR>", { desc = "", silent = true })
-map({ "n" }, "<leader>t", ":tabnew<CR>", { desc = "", silent = true })
+map({ "n" }, "<leader>q", ":q<CR>", { desc = ":q", silent = true })
+map({ "n" }, "<leader>Q", ":qa<CR>", { desc = ":qa", silent = true })
+map({ "n" }, "<leader>w", ":w<CR>", { desc = ":w", silent = true })
+map({ "n" }, "<leader>t", ":tabnew<CR>", { desc = "New tab", silent = true })
 
--- Navigate buffers
-map({ "n" }, "n", "nzzzv", { desc = "", silent = true })
-map({ "n" }, "N", "Nzzzv", { desc = "", silent = true })
-map({ "n" }, "~", "gT", { desc = "", silent = true })
+-- Search navigation
+map({ "n" }, "n", "nzzzv", { desc = "Go to next highlighted instance and centre on screen", silent = true })
+map({ "n" }, "N", "Nzzzv", { desc = "Go to previous highlighted instance and centre on screen", silent = true })
+
+-- Tab navigation
+map({ "n" }, "<S-h>", ":tabnext<CR>", { desc = "Cycle tab leftward", silent = true })
+map({ "n" }, "<S-l>", ":tabnext<CR>", { desc = "Cycle tab rightward", silent = true })
 
 -- Term Copy paste
-map({ "v" }, "<leader>y", '"+y', { desc = "", silent = true })
-map({ "v" }, "<leader>p", '"+p', { desc = "", silent = true })
-map({ "n" }, "<leader>p", '"+p', { desc = "", silent = true })
-map({ "v" }, "<leader>Y", '"zy', { desc = "", silent = true })
-map({ "v" }, "<leader>P", '"zp', { desc = "", silent = true })
-map({ "n" }, "<leader>P", '"zp', { desc = "", silent = true })
-map({ "v" }, "<leader>r", 'y:%s@<C-r>"@')
+map({ "v" }, "<leader>y", '"+y', { desc = "\"+y", silent = true })
+map({ "v" }, "<leader>p", '"+p', { desc = "\"+p", silent = true })
+map({ "n" }, "<leader>p", '"+p', { desc = "\"+p", silent = true })
+map({ "v" }, "<leader>Y", '"zy', { desc = "\"zy", silent = true })
+map({ "v" }, "<leader>P", '"zp', { desc = "\"zp", silent = true })
+map({ "n" }, "<leader>P", '"zp', { desc = "\"zp", silent = true })
+map({ "v" }, "<leader>r", 'y:%s@<C-r>"@', { desc = "Start substitution command for selection" })
 
 -- Better paste
-map({ "v" }, "p", '"_dP', { desc = "", silent = true })
+map({ "v" }, "p", '"_dP', { desc = "Avoids cutting the selection and modifiying the clipboard before pasting", silent = true })
 
 -- blackhole delete
-map({ "n" }, "<leader>d", 'V"_d', { desc = "", silent = true })
-map({ "v" }, "<leader>d", '"_d', { desc = "", silent = true })
+map({ "n" }, "<leader>d", 'V"_d', { desc = "Delete without modifiying the clipboard", silent = true })
+map({ "v" }, "<leader>d", '"_d', { desc = "Delete without modifiying the clipboard", silent = true })
 
 -- inserting lines above and below in normal mode
-map({ "n" }, "<leader>o", "o<esc>", { desc = "", silent = true })
-map({ "n" }, "<leader>O", "O<esc>", { desc = "", silent = true })
+map({ "n" }, "<leader>o", "o<esc>", { desc = "Insert empty line below", silent = true })
+map({ "n" }, "<leader>O", "O<esc>", { desc = "Insert empty line above", silent = true })
 
 -- Folding
-map({ "n" }, "<Space>", "za", { desc = "", silent = true })
+map({ "n" }, "<Space>", "za", { desc = "za", silent = true })
 
 -- Moving Lines
-map({ "v" }, "J", ":m '>+1<CR>gv=gv", { desc = "", silent = true })
-map({ "v" }, "K", ":m '<-2<CR>gv=gv", { desc = "", silent = true })
-
--- better up/down
-map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map({ "v" }, "J", ":m '>+1<CR>gv=gv", { desc = "Move down", silent = true })
+map({ "v" }, "K", ":m '<-2<CR>gv=gv", { desc = "Move up", silent = true })
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<esc>", { desc = "Escape", noremap = true })
@@ -78,24 +72,20 @@ map({ "n", "x" }, "*", "*N", { desc = "Forward search word under cursor" })
 map({ "n", "x" }, "#", "#N", { desc = "Backward search word under cursor" })
 
 -- Quick wrap
-map({ "n" }, "<leader>W", ":set wrap! wrap?<CR>", { desc = "", silent = true })
+map({ "n" }, "<leader>W", ":set wrap! wrap?<CR>", { desc = "Toggle text wrapping", silent = true })
 
 -- select all
-map({ "n" }, "<leader>A", "ggVG", { desc = "", silent = true })
+map({ "n" }, "<leader>A", "ggVG", { desc = "Select all", silent = true })
 
 -- diff
 map({ "n" }, "\\dt", ":diffthis<CR>", { desc = "", silent = true })
 map({ "n" }, "\\do", ":diffoff<CR>", { desc = "", silent = true })
 
 -- refresh
-map({ "n" }, "<leader>e", ":e<CR>", { desc = "", silent = true })
+map({ "n" }, "<leader>e", ":e<CR>", { desc = ":e", silent = true })
 
 -- Quick Find
-map({ "v" }, "<leader>g", 'y/<C-r>"<CR>N', { desc = "", silent = true })
-
--- better indenting
-map("v", "<", "<gv")
-map("v", ">", ">gv")
+map({ "v" }, "<leader>g", 'y/<C-r>"<CR>N', { desc = "Highlight without very-magic mode", silent = true })
 
 -- Pounce
 map({ "n" }, "s", "<cmd>Pounce<CR>", { desc = "", silent = true })
