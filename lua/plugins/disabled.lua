@@ -8,7 +8,7 @@ return {
   { "akinsho/bufferline.nvim", enabled = false },
   { "RRethy/vim-illuminate", enabled = false },
   { "rcarriga/nvim-notify", enabled = false },
-  { "folke/persistence", enabled = false },
+  { "folke/persistence.nvim", enabled = false },
   { "echasnovski/mini.pairs", enabled = false },
   { "echasnovski/mini.surround", enabled = false },
   { "nvim-neo-tree/neo-tree.nvim", enabled = false },
