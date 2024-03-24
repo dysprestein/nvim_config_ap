@@ -46,7 +46,6 @@ map("n", "<M-l>", ":call TmuxResize('l', 4)<CR>", { desc = "Increase window widt
 map({ "n" }, "<leader>q", ":q<CR>", { desc = ":q", silent = true })
 map({ "n" }, "<leader>Q", ":qa<CR>", { desc = ":qa", silent = true })
 map({ "n" }, "<leader>w", ":w<CR>", { desc = ":w", silent = true })
-map({ "n" }, "<leader>t", ":tabnew<CR>", { desc = "New tab", silent = true })
 
 -- Search navigation
 map({ "n" }, "n", "nzzzv", { desc = "Go to next highlighted instance and centre on screen", silent = true })
@@ -55,6 +54,7 @@ map({ "n" }, "N", "Nzzzv", { desc = "Go to previous highlighted instance and cen
 -- Tab navigation
 map({ "n" }, "<S-h>", ":tabnext<CR>", { desc = "Cycle tab leftward", silent = true })
 map({ "n" }, "<S-l>", ":tabnext<CR>", { desc = "Cycle tab rightward", silent = true })
+map({ "n" }, "<leader>t", ":tabnew<CR>", { desc = "New tab", silent = true })
 
 -- Term Copy paste
 map({ "v" }, "<leader>y", '"+y', { desc = "\"+y", silent = true })
