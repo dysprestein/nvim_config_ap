@@ -120,60 +120,14 @@ map(
   { desc = "", silent = true }
 )
 map({ "n" }, "<Leader>m", ':lua require("harpoon.ui").toggle_quick_menu()<cr>', { desc = "", silent = true })
-map(
-  { "n" },
-  "<Leader>1",
-  ':lua require("harpoon.ui").nav_file(1)<cr>:echom "File in Harpoon 1"<CR>',
-  { desc = "", silent = true }
-)
-map(
-  { "n" },
-  "<Leader>2",
-  ':lua require("harpoon.ui").nav_file(2)<cr>:echom "File in Harpoon 2"<CR>',
-  { desc = "", silent = true }
-)
-map(
-  { "n" },
-  "<Leader>3",
-  ':lua require("harpoon.ui").nav_file(3)<cr>:echom "File in Harpoon 3"<CR>',
-  { desc = "", silent = true }
-)
-map(
-  { "n" },
-  "<Leader>4",
-  ':lua require("harpoon.ui").nav_file(4)<cr>:echom "File in Harpoon 4"<CR>',
-  { desc = "", silent = true }
-)
-map(
-  { "n" },
-  "<Leader>5",
-  ':lua require("harpoon.ui").nav_file(5)<cr>:echom "File in Harpoon 5"<CR>',
-  { desc = "", silent = true }
-)
-map(
-  { "n" },
-  "<Leader>6",
-  ':lua require("harpoon.ui").nav_file(6)<cr>:echom "File in Harpoon 6"<CR>',
-  { desc = "", silent = true }
-)
-map(
-  { "n" },
-  "<Leader>7",
-  ':lua require("harpoon.ui").nav_file(7)<cr>:echom "File in Harpoon 7"<CR>',
-  { desc = "", silent = true }
-)
-map(
-  { "n" },
-  "<Leader>8",
-  ':lua require("harpoon.ui").nav_file(8)<cr>:echom "File in Harpoon 8"<CR>',
-  { desc = "", silent = true }
-)
-map(
-  { "n" },
-  "<Leader>9",
-  ':lua require("harpoon.ui").nav_file(9)<cr>:echom "File in Harpoon 9"<CR>',
-  { desc = "", silent = true }
-)
+for i = 1, 9 do
+  map(
+    { "n" },
+    "<Leader>" .. i,
+    ':lua require("harpoon.ui").nav_file(' .. i .. ')<cr>:echom "File in Harpoon ' .. i .. '"<CR>',
+    { desc = "", silent = true }
+  )
+end
 
 -- Window Maximizer
 map({ "n" }, "<leader><leader>", ":MaximizerToggle<CR>", { desc = "", silent = true })
