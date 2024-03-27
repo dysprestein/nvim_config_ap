@@ -1,18 +1,9 @@
 return {
-  { "ellisonleao/gruvbox.nvim",
-    lazy = false,
-  },
-  { "sainnhe/gruvbox-material",
-    lazy = false,
-  },
-  { "catppuccin/nvim",
-    lazy = false,},
-  { "folke/tokyonight.nvim",
-    lazy = false,
-  },
-  { "rebelot/kanagawa.nvim",
-    lazy = false,
-  },
+  { "ellisonleao/gruvbox.nvim", lazy = true },
+  { "sainnhe/gruvbox-material", lazy = true },
+  { "catppuccin/nvim", lazy = true },
+  { "folke/tokyonight.nvim", lazy = true },
+  { "rebelot/kanagawa.nvim", lazy = true },
 
   {
     "LazyVim/LazyVim",
